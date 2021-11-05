@@ -1,0 +1,21 @@
+{
+  "name": "org.pcsoft.game-tooling",
+  "version": "1.0.0",
+  "displayName": "Game Tooling",
+  "description": "Extension for Unity with common tooling for gaming",
+  "unity": "2021.1",
+  "keywords": [
+    "tooling",
+    "extension",
+    "game"
+  ],
+  "dependencies": {
+    "org.pcsoft.common-ex":"1.0.1",
+    "org.pcsoft.animation":"1.0.1"
+  },
+  "author": {
+    "name": "Pfeiffer C Soft",
+    "email": "kl3in3rhack3r@gmail.com",
+    "url": "https://github.com/KleinerHacker/unity-game-tooling"
+  }
+}
