@@ -1,9 +1,9 @@
-using UnityAnimation.Runtime.animation.Scripts.Utils;
+using UnityAnimation.Runtime.animation.Scripts.Runtime.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-namespace UnityGameTooling.Runtime.game_tooling.Scripts.Components.Cameras
+namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Cameras
 {
     [AddComponentMenu(UnityGameToolingConstants.Menu.Component.CameraMenu + "/Flying Panning Zoom Camera Controller")]
     [DisallowMultipleComponent]

@@ -1,7 +1,7 @@
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils;
 using UnityEngine;
 
-namespace UnityGameTooling.Runtime.game_tooling.Scripts.Components.Cameras
+namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Cameras
 {
     [AddComponentMenu(UnityGameToolingConstants.Menu.Component.CameraMenu + "/Camera Border")]
     [DisallowMultipleComponent]

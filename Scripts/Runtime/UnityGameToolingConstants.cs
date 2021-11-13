@@ -1,4 +1,4 @@
-namespace UnityGameTooling.Runtime.game_tooling.Scripts
+namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
 {
     public static class UnityGameToolingConstants
     {

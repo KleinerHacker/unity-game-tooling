@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.game-tooling",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Game Tooling",
   "description": "Extension for Unity with common tooling for gaming",
   "unity": "2021.1",
@@ -10,8 +10,8 @@
     "game"
   ],
   "dependencies": {
-    "org.pcsoft.common-ex":"1.0.1",
-    "org.pcsoft.animation":"1.0.1"
+    "org.pcsoft.common-ex":"1.0.4",
+    "org.pcsoft.animation":"1.1.0"
   },
   "author": {
     "name": "Pfeiffer C Soft",
