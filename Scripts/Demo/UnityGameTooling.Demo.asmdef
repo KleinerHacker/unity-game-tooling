@@ -2,7 +2,8 @@
     "name": "UnityGameTooling.Demo",
     "rootNamespace": "UnityGameTooling.Demo",
     "references": [
-        "GUID:37404cc31525e4545884b25085151881"
+        "GUID:37404cc31525e4545884b25085151881",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
