@@ -18,7 +18,11 @@ namespace UnityGameTooling.Demo.game_tooling.Scripts.Demo
 
         private void Update()
         {
-            _cameraController.Zoom(-Mouse.current.scroll.ReadValue().y);
+            var f = Mouse.current.scroll.ReadValue().y;
+            if (f != 0f)
+            {
+                _cameraController.Zoom(-f);
+            }
         }
     }
 }
