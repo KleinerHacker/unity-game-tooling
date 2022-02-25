@@ -14,11 +14,5 @@ URL: https://package.openupm.com
 Scope: org.pcsoft
 
 # usage
-
-### Cameras
 * `FlyingPanningZoomCameraController` is a camera made for simulation views. 
 Use it always with `CameraBorder` to setup scrolling borders.
-
-### Preview / Hover System
-* `PreviewSystem` to show a pre defines preview on pointer. See `Raycaster` and `Preview System` in project settings
-* Inherite from `HoverSystem` to create a simple pointer based over mechanism. System is created automatically on games startup.

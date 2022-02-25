@@ -3,28 +3,19 @@ using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEngine;
 using UnityExtension.Runtime.extension.Scripts.Runtime;
 using UnityExtension.Runtime.extension.Scripts.Runtime.Components;
+using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton;
+using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton.Attributes;
 using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
 
 namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
 {
     [DefaultExecutionOrder(UnityGameToolingConstants.Script.ExecutionOrder.PreviewController)]
-    public sealed class PreviewController : SearchingSingletonBehavior<PreviewController>
+    [Singleton(Scope = SingletonScope.Application, Instance = SingletonInstance.RequiresNewInstance, CreationTime = SingletonCreationTime.Loading, ObjectName = "Preview System")]
+    public sealed class PreviewController : SingletonBehavior<PreviewController>
     {
-        #region Static Area
+        [SingletonCondition]
+        public static bool IsSingletonActive() => PreviewSettings.Singleton.UseTooling;
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        public static void Initialize()
-        {
-            if (!PreviewSettings.Singleton.UseTooling)
-                return;
-            
-            var go = new GameObject("Preview System");
-            go.AddComponent<PreviewController>();
-            DontDestroyOnLoad(go);
-        }
-
-        #endregion
-        
         #region Properties
 
         public bool IsShown => !string.IsNullOrEmpty(ShownPreview);
