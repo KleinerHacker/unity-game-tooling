@@ -9,6 +9,18 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
             public static class Asset
             {
                 private const string RootMenu = Root;
+                
+                public const string GamingMenu = RootMenu + "/Gaming";
+
+                public static class Gaming
+                {
+                    public const string TrafficMenu = GamingMenu + "/Traffic";
+
+                    public static class Traffic
+                    {
+                        public const string TrafficLightMenu = TrafficMenu + "/Traffic Light";
+                    }
+                }
             }
 
             public static class Component
@@ -16,6 +28,17 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
                 private const string RootMenu = Root;
 
                 public const string CameraMenu = RootMenu + "/Camera";
+                public const string GamingMenu = RootMenu + "/Gaming";
+
+                public static class Gaming
+                {
+                    public const string TrafficMenu = GamingMenu + "/Traffic";
+
+                    public static class Traffic
+                    {
+                        public const string TrafficLightMenu = TrafficMenu + "/Traffic Light";
+                    }
+                }
             }
         }
 
