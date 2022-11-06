@@ -4,7 +4,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
 {
     [AddComponentMenu(UnityGameToolingConstants.Menu.Component.Gaming.Traffic.TrafficLightMenu + "/Traffic Light Handler (Lamp Emissive Indexed Material)")]
     [DisallowMultipleComponent]
-    public sealed class TrafficLightLampEmissiveIndexHandler : TrafficLightLampEmissiveBaseHandler
+    public sealed class TrafficLightLampEmissiveIndexHandler : TrafficLightLampEmissiveSingleRendererBaseHandler
     {
         private const string MaterialEmissiveColorKey = "_EmissiveColor";
         private static readonly int MaterialEmissiveColor = Shader.PropertyToID(MaterialEmissiveColorKey);

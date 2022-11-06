@@ -7,7 +7,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets.Gaming.Tr
     public sealed class TrafficLightPreset : ScriptableObject
     {
         #region Inspector Data
-
+ 
         [SerializeField]
         private TrafficLightHookUp[] greenToRed;
 

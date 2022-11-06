@@ -12,12 +12,5 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
         protected Color emissiveColor = Color.white * 10_000f;
 
         #endregion
-
-        protected MeshRenderer _renderer;
-
-        protected virtual void Awake()
-        {
-            _renderer = GetComponent<MeshRenderer>();
-        }
     }
 }

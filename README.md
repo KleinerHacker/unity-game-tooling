@@ -16,3 +16,18 @@ Scope: org.pcsoft
 # usage
 * `FlyingPanningZoomCameraController` is a camera made for simulation views. 
 Use it always with `CameraBorder` to setup scrolling borders.
+
+* `Traffic Light Controller` and `Traffic Light Cross Controller` is a controller for a simple traffic light. There are two presets:
+  * `Traffic Light Preset` is a hookup for the light flow. Builtin is German, International, Only Green, Only Green and Yellow and Pedestrian Light
+  * `Traffic Light Cross Preset` is a preset for a cross hookup between multiple traffic lights
+  
+  On the `Traffic Light Cross Preset` you assign the traffic lights based on the chosen cross preset.
+* The `Traffic Light Controller` requires an `ITrafficLightLampLightHandler` and an `ITrafficLightLampEmissiveHandler`:
+  * `ITrafficLightLampLightHandler`
+    * `TrafficLightLampLightDefaultHandler` - assign existing lights
+  * `ITrafficLightLampEmissiveHandler`
+    * `TrafficLightLampEmissiveTLHandler` - only for traffic lights with a material of TrafficLight shader
+    * `TrafficLightLampEmissiveIndexHandler` - for multiple material traffic lights
+    * `TrafficLightLampEmissiveMultipleRendererHandler` - for multiple renderer in a traffic light
+
+  > :warning: The traffic light system is currently developed for HDRP only!

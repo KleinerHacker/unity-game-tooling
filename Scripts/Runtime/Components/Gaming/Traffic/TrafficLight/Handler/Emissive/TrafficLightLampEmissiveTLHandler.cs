@@ -4,7 +4,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
 {
     [AddComponentMenu(UnityGameToolingConstants.Menu.Component.Gaming.Traffic.TrafficLightMenu + "/Traffic Light Handler (Lamp Emissive Traffic Light Shader)")]
     [DisallowMultipleComponent]
-    public sealed class TrafficLightLampEmissiveTLHandler : TrafficLightLampEmissiveBaseHandler
+    public sealed class TrafficLightLampEmissiveTLHandler : TrafficLightLampEmissiveSingleRendererBaseHandler
     {
         #region Inspector Data
 

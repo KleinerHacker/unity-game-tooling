@@ -32,8 +32,11 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets.Gaming.Tr
 #if UNITY_EDITOR
         private void OnValidate()
         {
-            var references = this.references
-                .Where(x => string.IsNullOrWhiteSpace(x.Uuid));
+            var references =
+                this.references.Where(x => !string.IsNullOrWhiteSpace(x.Uuid)).Select(x => x.Uuid).GroupBy(x => x).Any(x => x.Count() > 1)
+                    ? this.references
+                    : this.references
+                        .Where(x => string.IsNullOrWhiteSpace(x.Uuid));
 
             foreach (var reference in references)
             {
