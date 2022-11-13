@@ -139,8 +139,10 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 onFinished?.Invoke();
                 return;
             }
-            
+
+#if TRAFFIC_LIGHT_DEBUG
             Debug.Log("[TRAFFIC LIGHT] Switch to red", this);
+#endif
 
             if (State == TrafficLightState.OutOfOrder)
             {
@@ -158,8 +160,10 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 onFinished?.Invoke();
                 return;
             }
-            
+
+#if TRAFFIC_LIGHT_DEBUG
             Debug.Log("[TRAFFIC LIGHT] Switch to green", this);
+#endif
 
             if (State == TrafficLightState.OutOfOrder)
             {
@@ -177,8 +181,10 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 onFinished?.Invoke();
                 return;
             }
-            
+
+#if TRAFFIC_LIGHT_DEBUG
             Debug.Log("[TRAFFIC LIGHT] Switch to out of order", this);
+#endif
 
             OffOldColor();
             State = TrafficLightState.OutOfOrder;
@@ -193,8 +199,10 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 onFinished?.Invoke();
                 return;
             }
-            
+
+#if TRAFFIC_LIGHT_DEBUG
             Debug.Log("[TRAFFIC LIGHT] Switch off", this);
+#endif
 
             OffOldColor();
             State = TrafficLightState.Off;
