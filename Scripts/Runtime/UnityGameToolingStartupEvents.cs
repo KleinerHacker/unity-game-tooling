@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime;
 using UnityEngine;
+using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
 using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components;
 
 namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
@@ -23,6 +25,9 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
                 go.AddComponent(hoverType);
                 GameObject.DontDestroyOnLoad(go);
             }
+            
+            Debug.Log("Initialize preview system");
+            AssetResourcesLoader.LoadFromResources<PreviewSettings>("");
         }
     }
 }
