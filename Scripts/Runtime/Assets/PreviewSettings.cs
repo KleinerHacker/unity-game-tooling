@@ -1,51 +1,18 @@
-#if !UNITY_EDITOR
-using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
-#endif
 using System;
 using UnityEditor;
+using UnityEditorEx.Runtime.editor_ex.Scripts.Runtime.Assets;
 using UnityEngine;
-using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components;
 
 namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
 {
-    public sealed class PreviewSettings : ScriptableObject
+    public sealed class PreviewSettings : ProviderAsset<PreviewSettings>
     {
         #region Static Area
 
-#if UNITY_EDITOR
-        private const string Path = "Assets/Resources/gaming-preview.asset";
-#endif
-
-        public static PreviewSettings Singleton
-        {
-            get
-            {
-#if UNITY_EDITOR
-                var settings = AssetDatabase.LoadAssetAtPath<PreviewSettings>(Path);
-                if (settings == null)
-                {
-                    Debug.Log("Unable to find preview settings, create new");
-
-                    settings = new PreviewSettings();
-                    if (!AssetDatabase.IsValidFolder("Assets/Resources"))
-                    {
-                        AssetDatabase.CreateFolder("Assets", "Resources");
-                    }
-
-                    AssetDatabase.CreateAsset(settings, Path);
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
-                }
-
-                return settings;
-#else
-                return AssetResourcesLoader.Instance.GetAsset<PreviewSettings>();
-#endif
-            }
-        }
+        public static PreviewSettings Singleton => GetSingleton("Gaming Preview", "gaming-preview.asset");
 
 #if UNITY_EDITOR
-        public static SerializedObject SerializedSingleton => new SerializedObject(Singleton);
+        public static SerializedObject SerializedSingleton => GetSerializedSingleton("Gaming Preview", "gaming-preview.asset");
 #endif
 
         #endregion
