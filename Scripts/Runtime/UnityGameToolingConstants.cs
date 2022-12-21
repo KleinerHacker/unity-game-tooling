@@ -29,6 +29,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
 
                 public const string CameraMenu = RootMenu + "/Camera";
                 public const string GamingMenu = RootMenu + "/Gaming";
+                public const string MiscMenu = RootMenu + "/Misc";
 
                 public static class Gaming
                 {
