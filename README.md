@@ -31,3 +31,5 @@ Use it always with `CameraBorder` to setup scrolling borders.
     * `TrafficLightLampEmissiveMultipleRendererHandler` - for multiple renderer in a traffic light
 
   > :warning: The traffic light system is currently developed for HDRP only!
+
+* `TutorialSystem` - enables you to create simple dialog based tutorials. See in project settings "Player/Tutorial System" to setup it and use class `UITutorialDialog` in combination with `UIDialog` to create tutorial dialog pages. Link this pages with tutorial global settings and an ID. If you want to dire a tutorial relevant event use this: `TutorialSystem.FireEvent("MyTriggerIdentifier")`. To reset the tutorial use `TutorialSystem.Reset()`. The tutorial sate will stored automatically in player prefs by Tutorial System.
