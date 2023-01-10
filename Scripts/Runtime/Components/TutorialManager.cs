@@ -10,7 +10,7 @@ using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
 
 namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
 {
-    [Singleton(Instance = SingletonInstance.RequiresNewInstance, Scope = SingletonScope.Application, CreationTime = SingletonCreationTime.Loading)]
+    [Singleton(Instance = SingletonInstance.RequiresNewInstance, Scope = SingletonScope.Application, CreationTime = SingletonCreationTime.Loading, ObjectName = "Tutorial Manager")]
     public sealed class TutorialManager : SingletonBehavior<TutorialManager>
     {
         private TutorialSettings _settings;

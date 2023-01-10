@@ -28,6 +28,9 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
             
             Debug.Log("Initialize preview system");
             AssetResourcesLoader.LoadFromResources<PreviewSettings>("");
+            
+            Debug.Log("Initialize tutorial system");
+            AssetResourcesLoader.LoadFromResources<TutorialSettings>(""); 
         }
     }
 }
