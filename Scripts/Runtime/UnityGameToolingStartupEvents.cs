@@ -10,7 +10,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
     public static class UnityGameToolingStartupEvents
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        public static void Initialize()
+        public static void InitializeLater()
         {
             Debug.Log("Initialize hover system");
             var hoverTypes = AppDomain.CurrentDomain.GetAssemblies()
@@ -25,7 +25,11 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
                 go.AddComponent(hoverType);
                 GameObject.DontDestroyOnLoad(go);
             }
-            
+        }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+        public static void Initialize()
+        {
             Debug.Log("Initialize preview system");
             AssetResourcesLoader.LoadFromResources<PreviewSettings>("");
             
