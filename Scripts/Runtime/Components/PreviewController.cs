@@ -2,7 +2,6 @@ using System;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEngine;
 using UnityExtension.Runtime.extension.Scripts.Runtime;
-using UnityExtension.Runtime.extension.Scripts.Runtime.Components;
 using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton;
 using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton.Attributes;
 using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
@@ -14,7 +13,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
     public sealed class PreviewController : SingletonBehavior<PreviewController>
     {
         [SingletonCondition]
-        public static bool IsSingletonActive() => PreviewSettings.Singleton.UseTooling;
+        public static bool IsSingletonActive() => PreviewSettings.Singleton != null && PreviewSettings.Singleton.UseTooling;
 
         #region Properties
 
