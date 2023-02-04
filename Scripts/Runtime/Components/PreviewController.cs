@@ -8,13 +8,11 @@ using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
 
 namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
 {
+#if PCSOFT_PREVIEW
     [DefaultExecutionOrder(UnityGameToolingConstants.Script.ExecutionOrder.PreviewController)]
     [Singleton(Scope = SingletonScope.Application, Instance = SingletonInstance.RequiresNewInstance, CreationTime = SingletonCreationTime.Loading, ObjectName = "Preview System")]
     public sealed class PreviewController : SingletonBehavior<PreviewController>
     {
-        [SingletonCondition]
-        public static bool IsSingletonActive() => PreviewSettings.Singleton != null && PreviewSettings.Singleton.UseTooling;
-
         #region Properties
 
         public bool IsShown => !string.IsNullOrEmpty(ShownPreview);
@@ -81,4 +79,5 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
             }
         }
     }
+#endif
 }

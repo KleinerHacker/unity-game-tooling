@@ -140,7 +140,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 return;
             }
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT] Switch to red", this);
 #endif
 
@@ -161,7 +161,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 return;
             }
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT] Switch to green", this);
 #endif
 
@@ -182,7 +182,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 return;
             }
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT] Switch to out of order", this);
 #endif
 
@@ -200,7 +200,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 return;
             }
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT] Switch off", this);
 #endif
 
