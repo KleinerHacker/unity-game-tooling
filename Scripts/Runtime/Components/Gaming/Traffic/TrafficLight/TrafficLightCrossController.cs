@@ -75,7 +75,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                 _timeCounter = 0f;
                 _isCleanup = false;
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
                 Debug.Log("[TRAFFIC LIGHT CROSS] Finish cleanup phase", this);
                 Debug.Log("[TRAFFIC LIGHT CROSS] Switch to green for " + string.Join(',',
                     preset.Phases[_phaseIndex].Behaviors
@@ -102,7 +102,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
                     _phaseIndex = 0;
                 }
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
                 Debug.Log("[TRAFFIC LIGHT CROSS] Switch to red for " + string.Join(',',
                     preset.Phases[_phaseIndex].Behaviors
                         .Where(x => x.TargetState == TrafficLightState.Red)
@@ -127,7 +127,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
             if (!force && State == TrafficLightCrossState.Regular)
                 return;
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT CROSS] Switch state to regular", this);
 #endif
 
@@ -144,7 +144,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
             if (!force && State == TrafficLightCrossState.OutOfOrder)
                 return;
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT CROSS] Switch state to Out Of Order", this);
 #endif
 
@@ -161,7 +161,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Gamin
             if (!force && State == TrafficLightCrossState.Off)
                 return;
 
-#if TRAFFIC_LIGHT_DEBUG
+#if PCSOFT_TRAFFIC_LIGHT_LOGGING
             Debug.Log("[TRAFFIC LIGHT CROSS] Switch state Off", this);
 #endif
 

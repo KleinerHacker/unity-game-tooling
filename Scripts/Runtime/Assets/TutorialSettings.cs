@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
 using UnityEditor;
 using UnityEditorEx.Runtime.editor_ex.Scripts.Runtime.Assets;
@@ -31,7 +30,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
 
         [SerializeField]
         [Tag]
-        private string targetCanvasTag = "Untagged"; 
+        private string targetCanvasTag = "Untagged";
 
         [SerializeField]
         private TutorialStep[] steps = Array.Empty<TutorialStep>();

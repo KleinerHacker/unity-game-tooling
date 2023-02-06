@@ -20,9 +20,6 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
         #region Inspector Data
 
         [SerializeField]
-        private bool useTooling;
-
-        [SerializeField]
         private string raycaster;
 
         [SerializeField]
@@ -31,8 +28,6 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
         #endregion
 
         #region Properties
-
-        public bool UseTooling => useTooling;
 
         public string Raycaster => raycaster;
 

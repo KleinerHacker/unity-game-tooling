@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEditorEx.Editor.editor_ex.Scripts.Editor.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
@@ -44,16 +45,42 @@ namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
             _stepList = new TutorialStepList(_serializedObject, _stepsProperty);
         }
 
+        public override void OnTitleBarGUI()
+        {
+            GUILayout.BeginVertical();
+            {
+                ExtendedEditorGUILayout.SymbolField("Activate System", "PCSOFT_TUTORIAL");
+                EditorGUI.BeginDisabledGroup(
+#if PCSOFT_TUTORIAL
+                    false
+#else
+                    true
+#endif
+                );
+                {
+                    ExtendedEditorGUILayout.SymbolField("Verbose Logging", "PCSOFT_TUTORIAL_LOGGING");
+                }
+                EditorGUI.EndDisabledGroup();
+            }
+            GUILayout.EndVertical();
+        }
+
         public override void OnGUI(string searchContext)
         {
             _serializedObject.Update();
+            
+            GUILayout.Space(15f);
 
+#if PCSOFT_TUTORIAL
             EditorGUILayout.PropertyField(_canvasTagProperty, new GUIContent("Target Canvas for dialogs"));
             EditorGUILayout.PropertyField(_playerPrefsPrefixProperty, new GUIContent("Prefix for player prefs"));
             GUILayout.Space(15f);
 
             EditorGUILayout.PropertyField(_orderedProperty, new GUIContent("Ordered Tutorial Steps", null, "The tutorial steps are shown in defined order."));
             _stepList.DoLayoutList();
+#else
+            EditorGUILayout.HelpBox("Tutorial System deactivated", MessageType.Info);
+#endif
 
             _serializedObject.ApplyModifiedProperties();
         }
