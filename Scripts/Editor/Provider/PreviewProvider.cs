@@ -116,7 +116,7 @@ namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
 
             _previewList.DoLayoutList();
 #elif !PCSOFT_RAYCASTER
-            EditorGUILayout.HelpBox("Raycaster System deactivated", MessageType.Warning);
+            EditorGUILayout.HelpBox("Raycaster System deactivated but required", MessageType.Warning);
 #else
             EditorGUILayout.HelpBox("Preview System deactivated", MessageType.Info);
 #endif
