@@ -12,7 +12,7 @@
   "dependencies": {
     "org.pcsoft.common-ex": "1.1.10",
     "org.pcsoft.animation": "1.2.4",
-    "org.pcsoft.extension": "1.10.0",
+    "org.pcsoft.extension": "1.10.1",
     "org.pcsoft.editor-ex": "1.1.17",
     "org.pcsoft.asset-loader": "2.0.1",
     "org.pcsoft.ui-ex": "1.9.2",
