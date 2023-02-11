@@ -42,13 +42,5 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime
                 }
             }
         }
-
-        public static class Script
-        {
-            public static class ExecutionOrder
-            {
-                public const int PreviewController = -99;
-            }
-        }
     }
 }

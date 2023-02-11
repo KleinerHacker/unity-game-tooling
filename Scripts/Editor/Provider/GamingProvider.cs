@@ -6,7 +6,6 @@ namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
     public sealed class GamingProvider : SettingsProvider
     {
         private const string TrafficLightLogging = "PCSOFT_TRAFFIC_LIGHT_LOGGING";
-        private const string HoverLogging = "PCSOFT_HOVER_LOGGING";
 
         #region Static Area
 
@@ -19,7 +18,6 @@ namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
         #endregion
 
         private bool _trafficLightGroup = true;
-        private bool _hoverGroup = true;
 
         public GamingProvider() : base("Project/Gaming", SettingsScope.Project, new[] { "gaming", "tooling" })
         {
@@ -39,27 +37,6 @@ namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
                 EditorGUI.indentLevel = 0;
             }
 
-            EditorGUILayout.EndFoldoutHeaderGroup();
-
-            _hoverGroup = EditorGUILayout.BeginFoldoutHeaderGroup(_hoverGroup, "Hover System");
-            {
-                EditorGUI.indentLevel = 1;
-                {
-                    ExtendedEditorGUILayout.SymbolFieldLeft("Activate System", "PCSOFT_HOVER");
-                    EditorGUI.BeginDisabledGroup(
-#if PCSOFT_HOVER
-                        false
-#else
-                        true
-#endif
-                    );
-                    {
-                        ExtendedEditorGUILayout.SymbolFieldLeft("Verbose Logging", HoverLogging);
-                    }
-                    EditorGUI.EndDisabledGroup();
-                }
-                EditorGUI.indentLevel = 0;
-            }
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
     }
