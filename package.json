@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.game-tooling",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "displayName": "Game Tooling",
   "description": "Extension for Unity with common tooling for gaming",
   "unity": "2021.3",
@@ -11,8 +11,9 @@
   ],
   "dependencies": {
     "org.pcsoft.common-ex": "1.1.10",
+    "org.pcsoft.base": "1.0.0",
     "org.pcsoft.animation": "1.2.4",
-    "org.pcsoft.extension": "1.10.1",
+    "org.pcsoft.extension": "1.11.0",
     "org.pcsoft.editor-ex": "1.1.17",
     "org.pcsoft.asset-loader": "2.0.1",
     "org.pcsoft.ui-ex": "1.9.2",

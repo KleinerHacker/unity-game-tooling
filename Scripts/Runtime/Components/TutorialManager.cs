@@ -1,16 +1,16 @@
-﻿namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
+﻿using System;
+using System.Collections.Generic;
+using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton;
+using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton.Attributes;
+using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
+using UnityEngine;
+using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
+using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Misc;
+using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
+
+namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
 {
 #if PCSOFT_TUTORIAL
-    using System;
-    using System.Collections.Generic;
-    using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
-    using UnityEngine;
-    using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton;
-    using UnityExtension.Runtime.extension.Scripts.Runtime.Components.Singleton.Attributes;
-    using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets;
-    using UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Misc;
-    using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
-
     [Singleton(Instance = SingletonInstance.RequiresNewInstance, Scope = SingletonScope.Application, CreationTime = SingletonCreationTime.Loading, ObjectName = "Tutorial Manager")]
     public sealed class TutorialManager : SingletonBehavior<TutorialManager>
     {
