@@ -71,6 +71,9 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
         [SerializeField]
         private UITutorialDialog dialog;
 
+        [SerializeField]
+        private Vector2 relativePosition = Vector2.zero;
+
         #endregion
 
         #region Properties
@@ -78,6 +81,8 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Assets
         public string Identifier => identifier;
 
         public GameObject Dialog => dialog.gameObject;
+
+        public Vector2 RelativePosition => relativePosition;
 
         #endregion
     }

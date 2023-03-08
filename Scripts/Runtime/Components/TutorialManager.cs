@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton;
 using UnityBase.Runtime.@base.Scripts.Runtime.Components.Singleton.Attributes;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
@@ -28,7 +29,12 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
             {
                 var canvas = new Func<Canvas>(() =>
                 {
-                    var canvasGo = GameObject.FindWithTag(_settings.TargetCanvasTag);
+                    var canvasGo = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.gameObject.CompareTag(_settings.TargetCanvasTag));
+                    if (canvasGo == null)
+                    {
+                        Debug.LogWarning("[TUTORIAL] Unable to find canvas tagged with " + _settings.TargetCanvasTag);
+                    }
+
                     return canvasGo == null ? FindObjectOfType<Canvas>() : canvasGo.GetComponent<Canvas>();
                 }).Invoke();
 
@@ -36,6 +42,7 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
                     throw new InvalidOperationException("Cannot find any target canvas, tag was " + _settings.TargetCanvasTag);
 
                 var go = Instantiate(step.Dialog, Vector3.zero, Quaternion.identity, canvas.transform);
+                ((RectTransform)go.transform).anchoredPosition += step.RelativePosition;
                 _tutorialDialogs.Add(step.Identifier, go.GetComponent<UITutorialDialog>());
             }
         }
