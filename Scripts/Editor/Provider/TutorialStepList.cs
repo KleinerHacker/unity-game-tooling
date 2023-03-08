@@ -1,30 +1,40 @@
 ﻿using UnityEditor;
-using UnityEditorInternal;
+using UnityEditorEx.Editor.editor_ex.Scripts.Editor;
 using UnityEngine;
 
 namespace UnityGameTooling.Editor.game_tooling.Scripts.Editor.Provider
 {
-    public sealed class TutorialStepList : ReorderableList
+    public sealed class TutorialStepList : TableReorderableList
     {
         public TutorialStepList(SerializedObject serializedObject, SerializedProperty elements) : base(serializedObject, elements)
         {
-            drawHeaderCallback += DrawHeaderCallback;
-            drawElementCallback += DrawElementCallback;
+            Columns.Add(new FixedColumn { HeaderText = "Identifier", AbsoluteWidth = 150f, MaxHeight = 20f, ElementCallback = IdentifierElementCallback });
+            Columns.Add(new FlexibleColumn { HeaderText = "Tutorial Dialog", MaxHeight = 20f, ElementCallback = TutorialDialogElementCallback });
+            Columns.Add(new FixedColumn { HeaderText = "Relative Position", AbsoluteWidth = 150f, MaxHeight = 20f, ElementCallback = RelativePositionElementCallback });
         }
 
-        private void DrawHeaderCallback(Rect rect)
-        {
-            GUI.Label(rect, "Tutorial Steps", EditorStyles.boldLabel);
-        }
-
-        private void DrawElementCallback(Rect rect, int i, bool isactive, bool isfocused)
+        private void IdentifierElementCallback(Rect rect, int i, bool isactive, bool isfocused)
         {
             var property = serializedProperty.GetArrayElementAtIndex(i);
             var identifierProperty = property.FindPropertyRelative("identifier");
+
+            EditorGUI.PropertyField(rect, identifierProperty, GUIContent.none);
+        }
+
+        private void TutorialDialogElementCallback(Rect rect, int i, bool isactive, bool isfocused)
+        {
+            var property = serializedProperty.GetArrayElementAtIndex(i);
             var dialogProperty = property.FindPropertyRelative("dialog");
-                
-            EditorGUI.PropertyField(new Rect(rect.x, rect.y, 200f, 20f), identifierProperty, GUIContent.none);
-            EditorGUI.PropertyField(new Rect(rect.x + 205f, rect.y, rect.width - 205f, 20f), dialogProperty, GUIContent.none);
+
+            EditorGUI.PropertyField(rect, dialogProperty, GUIContent.none);
+        }
+
+        private void RelativePositionElementCallback(Rect rect, int i, bool isactive, bool isfocused)
+        {
+            var property = serializedProperty.GetArrayElementAtIndex(i);
+            var posProperty = property.FindPropertyRelative("relativePosition");
+
+            EditorGUI.PropertyField(rect, posProperty, GUIContent.none);
         }
     }
 }
