@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.game-tooling",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "displayName": "Game Tooling",
   "description": "Extension for Unity with common tooling for gaming",
   "unity": "2021.3",
