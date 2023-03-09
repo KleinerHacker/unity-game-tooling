@@ -17,7 +17,13 @@
         private Toggle skipToggle;
 
         #endregion
-        
+
+        #region Properties
+
+        public bool IsShown => _dialog.State == ViewableState.Shown;
+
+        #endregion
+
         private UIDialog _dialog;
 
         #region Builtin Methods

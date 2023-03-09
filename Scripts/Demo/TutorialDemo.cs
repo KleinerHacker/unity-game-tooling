@@ -11,6 +11,11 @@ namespace UnityGameTooling.Demo.game_tooling.Scripts.Demo
             TutorialSystem.Reset();
         }
 
+        public void HideCurrent()
+        {
+            TutorialSystem.HideCurrent();
+        }
+
         public void ShowPage1()
         {
             TutorialSystem.FireEvent("p1");

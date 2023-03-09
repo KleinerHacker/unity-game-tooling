@@ -60,6 +60,21 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
             }
         }
 
+        internal void HideCurrent()
+        {
+            if (!_tutorialDialogs.Any(x => x.Value.IsShown))
+            {
+#if PCSOFT_TUTORIAL_LOGGING
+                Debug.Log("[TUTORIAL] No dialog is shown currently, nothing to hide");
+#endif
+                return;
+            }
+
+            _tutorialDialogs.Values
+                .Where(x => x.IsShown)
+                .ForEach(x => x.Hide());
+        }
+
         internal void ResetTutorial()
         {
 #if PCSOFT_TUTORIAL_LOGGING
