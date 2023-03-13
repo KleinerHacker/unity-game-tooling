@@ -1,4 +1,6 @@
-﻿namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Misc
+﻿using System;
+
+namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components.Misc
 {
     using UnityEngine;
     using UnityEngine.EventSystems;
@@ -21,6 +23,22 @@
         #region Properties
 
         public bool IsShown => _dialog.State == ViewableState.Shown;
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler Shown
+        {
+            add => _dialog.Shown += value;
+            remove => _dialog.Shown -= value;
+        }
+
+        public event EventHandler Hidden
+        {
+            add => _dialog.Hidden += value;
+            remove => _dialog.Hidden -= value;
+        }
 
         #endregion
 

@@ -88,19 +88,23 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
             PlayerPrefsEx.SetInt(CounterKey, 0, true);
         }
 
-        internal void HandleEvent(string identifier)
+        internal void HandleEvent(string identifier, Action onFinished)
         {
             if (PlayerPrefsEx.GetBool(BuildKey(identifier), false))
             {
 #if PCSOFT_TUTORIAL_LOGGING
                 Debug.Log("[TUTORIAL] Tutorial already shown: " + identifier);
 #endif
+
+                onFinished?.Invoke();
                 return;
             }
 
             if (!_settings.TryFindStep(identifier, out var step))
             {
                 Debug.LogError("[TUTORIAL] Unable to find tutorial step " + identifier);
+
+                onFinished?.Invoke();
                 return;
             }
 
@@ -109,6 +113,8 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
 #if PCSOFT_TUTORIAL_LOGGING
                 Debug.Log("[TUTORIAL] Tutorial on wrong step index. Requires other tutorial steps before: " + identifier);
 #endif
+
+                onFinished?.Invoke();
                 return;
             }
 
@@ -116,8 +122,15 @@ namespace UnityGameTooling.Runtime.game_tooling.Scripts.Runtime.Components
             Debug.Log("[TUTORIAL] Show tutorial: " + identifier);
 #endif
             _tutorialDialogs[identifier].Show();
+            _tutorialDialogs[identifier].Hidden += Hidden;
             PlayerPrefsEx.SetBool(BuildKey(identifier), true, true);
             PlayerPrefsEx.SetInt(CounterKey, _tutorialDialogs.Keys.IndexOf(x => x == identifier) + 1);
+
+            void Hidden(object sender, EventArgs e)
+            {
+                onFinished?.Invoke();
+                _tutorialDialogs[identifier].Hidden -= Hidden;
+            }
         }
 
         private string BuildKey(string identifier) => _settings.PlayerPrefsPrefix + "." + identifier;
